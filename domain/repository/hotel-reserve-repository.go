@@ -1,7 +1,10 @@
 package repository
 
+import (
+	"reserveBillsHotelService/domain/entity"
+)
+
 type ReserveHotelRepository interface {
-	NewHotelReserveRepository()
-	RegurationReserveHotel()
+	RegurationReserveHotel(hotelReserve *entity.HotelReserve) error
 	CancelReserveHotel()
 }

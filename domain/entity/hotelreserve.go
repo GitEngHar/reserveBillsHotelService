@@ -1,14 +1,33 @@
 package entity
 
-import (
-	"time"
-)
-
 type HotelReserve struct {
-	ID               int
-	IsCancel         bool
-	HotelID          int
-	UserID           int
-	ReservedDatetime time.Time
-	CheckInDatetime  time.Time
+	ID               int   `json:"id"`
+	IsCancel         bool  `json:"is_cancel"`
+	HotelID          int   `json:"hotel_id"`
+	UserID           int   `json:"user_id"`
+	ReservedDatetime int64 `json:"reserved_datetime"`
+	CheckInDatetime  int64 `json:"checkin_datetime"`
+}
+
+func NewHotelReserve(id int, isCancel bool, hotelID int, userID int, reservedDatetime int64, CheckInDatetime int64) *HotelReserve {
+	return &HotelReserve{
+		ID:               id,
+		IsCancel:         isCancel,
+		HotelID:          hotelID,
+		UserID:           userID,
+		ReservedDatetime: reservedDatetime,
+		CheckInDatetime:  CheckInDatetime,
+	}
+}
+
+func CanReserve(roomsAvailable int) bool {
+	if roomsAvailable > 0 {
+		return true
+	} else {
+		return false
+	}
+}
+
+func DiscountRoomsAvailable(roomsAvailable int) int {
+	return roomsAvailable - 1
 }
