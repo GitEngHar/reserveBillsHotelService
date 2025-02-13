@@ -19,3 +19,15 @@ func NewHotelReserve(id int, isCancel bool, hotelID int, userID int, reservedDat
 		CheckInDatetime:  CheckInDatetime,
 	}
 }
+
+func CanReserve(roomsAvailable int) bool {
+	if roomsAvailable > 0 {
+		return true
+	} else {
+		return false
+	}
+}
+
+func DiscountRoomsAvailable(roomsAvailable int) int {
+	return roomsAvailable - 1
+}

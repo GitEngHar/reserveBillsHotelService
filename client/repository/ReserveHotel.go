@@ -3,13 +3,14 @@ package repository
 import (
 	"database/sql"
 	"reserveBillsHotelService/domain/entity"
+	"reserveBillsHotelService/domain/repository"
 )
 
 type ReserveHotel struct {
 	db *sql.DB
 }
 
-func NewReserveHotel(db *sql.DB) *ReserveHotel {
+func NewHotelReserveRepository(db *sql.DB) repository.ReserveHotelRepository {
 	return &ReserveHotel{db: db}
 }
 
@@ -19,4 +20,7 @@ func (r *ReserveHotel) RegurationReserveHotel(hotel *entity.HotelReserve) error 
 		hotel.ID, hotel.IsCancel, hotel.HotelID, hotel.UserID, hotel.ReservedDatetime, hotel.CheckInDatetime,
 	)
 	return err
+}
+
+func (r *ReserveHotel) CancelReserveHotel() {
 }

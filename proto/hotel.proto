@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package hotel;
+
+option go_package = "billsHotelService/proto/hotel";
+
+service HotelService{
+  rpc GetHotel (HotelRequest) returns (HotelResponse);
+  rpc UpdateHotel (HotelRequest) returns (HotelResponse);
+  rpc CreateHotel (HotelRequest) returns (HotelResponse);
+}
+
+message HotelRequest{
+  int32 id = 1;
+  string name = 2;
+  int32 price_pernight = 3;
+  int32 rooms_available = 4;
+}
+
+message Hotel{
+  int32 id = 1;
+  string name = 2;
+  int32 price_pernight = 3;
+  int32 rooms_available = 4;
+}
+
+message HotelResponse{
+  Hotel hotel = 1;
+}

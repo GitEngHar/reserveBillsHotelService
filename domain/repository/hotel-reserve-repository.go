@@ -1,12 +1,10 @@
 package repository
 
 import (
-	"database/sql"
-	"reserveBillsHotelService/client/repository"
+	"reserveBillsHotelService/domain/entity"
 )
 
 type ReserveHotelRepository interface {
-	NewHotelReserveRepository(db *sql.DB) *repository.ReserveHotel
-	RegurationReserveHotel()
+	RegurationReserveHotel(hotelReserve *entity.HotelReserve) error
 	CancelReserveHotel()
 }
