@@ -1,12 +1,12 @@
 package entity
 
 type HotelReserve struct {
-	ID               int
-	IsCancel         bool
-	HotelID          int
-	UserID           int
-	ReservedDatetime int64
-	CheckInDatetime  int64
+	ID               int   `json:"id"`
+	IsCancel         bool  `json:"is_cancel"`
+	HotelID          int   `json:"hotel_id"`
+	UserID           int   `json:"user_id"`
+	ReservedDatetime int64 `json:"reserved_datetime"`
+	CheckInDatetime  int64 `json:"checkin_datetime"`
 }
 
 func NewHotelReserve(id int, isCancel bool, hotelID int, userID int, reservedDatetime int64, CheckInDatetime int64) *HotelReserve {
