@@ -96,7 +96,8 @@ clientサーバを立ち上げる
 */
 func main() {
 	ctx := context.Background()
-	connection, err := grpc.NewClient("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	// hotel-server-service
+	connection, err := grpc.NewClient("hotel-server-service:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("did not : %v", err)
 	}
