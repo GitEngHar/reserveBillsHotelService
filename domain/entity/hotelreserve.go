@@ -28,6 +28,14 @@ func CanReserve(roomsAvailable int) bool {
 	}
 }
 
+func HotelReserveCancel() bool {
+	return false
+}
+
 func DiscountRoomsAvailable(roomsAvailable int) int {
 	return roomsAvailable - 1
+}
+
+func UpscountRoomsAvailable(roomsAvailable int) int {
+	return roomsAvailable + 1
 }
