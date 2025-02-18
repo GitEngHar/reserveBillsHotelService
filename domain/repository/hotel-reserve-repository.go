@@ -6,5 +6,5 @@ import (
 
 type ReserveHotelRepository interface {
 	RegurationReserveHotel(hotelReserve *entity.HotelReserve) error
-	CancelReserveHotel()
+	CancelReserveHotel(hotelReserve *entity.HotelReserve) error
 }

@@ -22,5 +22,10 @@ func (r *ReserveHotel) RegurationReserveHotel(hotel *entity.HotelReserve) error 
 	return err
 }
 
-func (r *ReserveHotel) CancelReserveHotel() {
+func (r *ReserveHotel) CancelReserveHotel(hotel *entity.HotelReserve) error {
+	_, err := r.db.Exec(
+		"UPDATE reserve_hotel SET iscancel=(?) WHERE id=(?)",
+		hotel.IsCancel, hotel.ID,
+	)
+	return err
 }
